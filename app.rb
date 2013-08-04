@@ -44,8 +44,8 @@ get '/session/callback' do
 	access_token = OAuth2::AccessToken.new(client, response["access_token"])
 	# end hack
 
-	# some user data as an example
-	user = access_token.get('https://api.foursquare.com/v2/users/self')
+	# Get user checkins.
+	user = access_token.get('https://api.foursquare.com/v2/users/self/checkins')
 	user.inspect
 end
 
